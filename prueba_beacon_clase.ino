@@ -2,6 +2,7 @@
 // Ejemplo IBeaconBasico.ino
 // Adaptado de https://learn.adafruit.com/bluefruit-nrf52-feather-learning-guide/adafruitbluefruit
 // Jordi Bataller Mascarell
+// Modificado: Jorge Larrosa Quesada
 // ----------------------------------------------------
 #include <bluefruit.h>
 // ----------------------------------------------------
@@ -27,13 +28,9 @@ void setup() {
    //
    Serial.println("Setting Device Name to GTI-3A " );
 
+   //Nombre del Beacon
    Bluefruit.setName("GTI-JDEC");
    Bluefruit.ScanResponse.addName();
-
-   //
-   //
-   //
-   //startAdvertising(); solo se ejecuta una vez aquí
 
    //
    //
@@ -47,8 +44,9 @@ void setup() {
 
 // ----------------------------------------------------
 // ----------------------------------------------------
+// R, R --> ()
 void startAdvertising(int datos, int sensor) {
-
+   //Se le pasan los datos del sensor y el número que representa al sensor
    Serial.println( " startAdvertising() " );
 
    Serial.println( " Bluefruit.Advertising.stop(); ");
@@ -111,7 +109,7 @@ void loop() {
 
    delay(1000);
 
-   startAdvertising(cont,69);
+   startAdvertising(cont,5);
 
    Serial.print( " ** loop cont=" );
    Serial.println( cont );
